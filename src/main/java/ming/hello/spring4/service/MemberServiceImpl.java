@@ -28,4 +28,9 @@ public class MemberServiceImpl implements MemberService {
 
         return isLogin;
     }
+
+    @Override
+    public Member readOneMember(String userid) {
+        return mdao.selectOneMember(userid);
+    }
 }
