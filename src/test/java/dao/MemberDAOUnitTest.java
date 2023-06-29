@@ -11,6 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -32,4 +33,16 @@ public class MemberDAOUnitTest {
         // assertEquals(테스트메서드, 검증값)
         assertEquals(mdao.insertMember(m), 1);
     }
+
+    @Test
+    public void loginMember() throws Exception {
+        Member m = new Member();
+
+        m.setUserid("abc123");
+        m.setPasswd("987xyz");
+
+        // System.out.println(mdao.loginMember(m));
+        assertNotNull(mdao.loginMember(m));
+    }
+
 }
