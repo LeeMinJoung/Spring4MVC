@@ -67,9 +67,9 @@ public class MemberController {
 
         logger.info("member/myinfo 호출!");
 
-        // 세션객체가 없을 경우 로그인 페이지로 이동
-        if(sess.getAttribute("member") == null)
-            return "redirect:/member/login";
+        // 세션객체가 없을 경우 로그인 페이지로 이동 - aop로 처리
+        // if(sess.getAttribute("member") == null)
+        //    return "redirect:/member/login";
 
         String userid =
                 ((Member) sess.getAttribute("member")).getUserid();
