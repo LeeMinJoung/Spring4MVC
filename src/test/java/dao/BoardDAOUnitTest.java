@@ -37,4 +37,13 @@ public class BoardDAOUnitTest {
         System.out.println(results);
     }
 
+    @Test
+    public void selectOneBoard() throws Exception {
+        String bno = "540";
+        Board result =  bdao.selectOneBoard(bno);
+
+        assertNotNull(result);
+        System.out.println(result);
+    }
+
 }
