@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static org.springframework.test.util.AssertionErrors.assertEquals;
+
 @Service("bsrv")
 public class BoardServiceImpl implements BoardService {
 
@@ -22,5 +24,14 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public Board readOneBoard(String bno) {
         return bdao.selectOneBoard(bno);
+    }
+
+    @Override
+    public boolean saveBoard(Board bd) {
+        boolean isSaved = false;
+
+        if (bdao.insertBoard(bd) > 0) isSaved = true;
+
+        return isSaved;
     }
 }
